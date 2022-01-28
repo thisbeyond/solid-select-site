@@ -2,10 +2,14 @@ import { WaveFooter } from "../wave-footer";
 import { Header } from "../header";
 import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
-import { Example, ExampleCode, ExampleDemo } from "../example";
-import { SelectExample } from "../examples/select-example";
-import selectExampleString from "../examples/select-example?raw";
 import { InstallButton } from "../install-button";
+import { Example, ExampleCode, ExampleDemo } from "../example";
+import { StaticExample } from "../examples/static-example";
+import staticExampleString from "../examples/static-example?raw";
+import { DynamicExample } from "../examples/dynamic-example";
+import dynamicExampleString from "../examples/dynamic-example?raw";
+import { AutocompleteExample } from "../examples/autocomplete-example";
+import autocompleteExampleString from "../examples/autocomplete-example?raw";
 
 const Home = () => {
   return (
@@ -38,11 +42,23 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-14">
-            <Example title="Basic select">
+            <Example title="Static options">
               <ExampleDemo>
-                <SelectExample />
+                <StaticExample />
               </ExampleDemo>
-              <ExampleCode code={selectExampleString} />
+              <ExampleCode code={staticExampleString} />
+            </Example>
+            <Example title="Dynamic options">
+              <ExampleDemo>
+                <DynamicExample />
+              </ExampleDemo>
+              <ExampleCode code={dynamicExampleString} />
+            </Example>
+            <Example title="Autocomplete">
+              <ExampleDemo>
+                <AutocompleteExample />
+              </ExampleDemo>
+              <ExampleCode code={autocompleteExampleString} />
             </Example>
           </div>
         </div>

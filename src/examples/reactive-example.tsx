@@ -1,8 +1,8 @@
+import { createSignal } from "solid-js";
 import { Select } from "@thisbeyond/solid-select";
 import "@thisbeyond/solid-select/style.css";
-import { createSignal } from "solid-js";
 
-export const DynamicExample = () => {
+export const ReactiveExample = () => {
   const optionSets = {
     fruit: ["apple", "banana", "pear", "pineapple", "kiwi"],
     starwars: ["jedi", "sith", "stormtrooper", "luke", "leia"],

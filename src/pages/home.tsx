@@ -6,10 +6,14 @@ import { InstallButton } from "../install-button";
 import { Example, ExampleCode, ExampleDemo } from "../example";
 import { StaticExample } from "../examples/static-example";
 import staticExampleString from "../examples/static-example?raw";
-import { DynamicExample } from "../examples/dynamic-example";
-import dynamicExampleString from "../examples/dynamic-example?raw";
-import { AutocompleteExample } from "../examples/autocomplete-example";
-import autocompleteExampleString from "../examples/autocomplete-example?raw";
+import { ReactiveExample } from "../examples/reactive-example";
+import reactiveExampleString from "../examples/reactive-example?raw";
+import { FilterableExample } from "../examples/filterable-example";
+import filterableExampleString from "../examples/filterable-example?raw";
+import { FilterableObjectsExample } from "../examples/filterable-objects-example";
+import filterableObjectsExampleString from "../examples/filterable-objects-example?raw";
+import { MultipleExample } from "../examples/multiple-example";
+import multipleExampleString from "../examples/multiple-example?raw";
 
 const Home = () => {
   return (
@@ -42,23 +46,35 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-14">
-            <Example title="Static options">
+            <Example title="Static">
               <ExampleDemo>
                 <StaticExample />
               </ExampleDemo>
               <ExampleCode code={staticExampleString} />
             </Example>
-            <Example title="Dynamic options">
+            <Example title="Reactive">
               <ExampleDemo>
-                <DynamicExample />
+                <ReactiveExample />
               </ExampleDemo>
-              <ExampleCode code={dynamicExampleString} />
+              <ExampleCode code={reactiveExampleString} />
             </Example>
-            <Example title="Autocomplete">
+            <Example title="Filterable">
               <ExampleDemo>
-                <AutocompleteExample />
+                <FilterableExample />
               </ExampleDemo>
-              <ExampleCode code={autocompleteExampleString} />
+              <ExampleCode code={filterableExampleString} />
+            </Example>
+            <Example title="Filterable (Objects)">
+              <ExampleDemo>
+                <FilterableObjectsExample />
+              </ExampleDemo>
+              <ExampleCode code={filterableObjectsExampleString} />
+            </Example>
+            <Example title="Multiple">
+              <ExampleDemo>
+                <MultipleExample />
+              </ExampleDemo>
+              <ExampleCode code={multipleExampleString} />
             </Example>
           </div>
         </div>

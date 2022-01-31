@@ -10,7 +10,7 @@ export const FilterableObjectsExample = () => (
         { name: "pineapple" },
         { name: "kiwi" },
       ],
-      "name"
+      { key: "name" }
     )}
   />
 );

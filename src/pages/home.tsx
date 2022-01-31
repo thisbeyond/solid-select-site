@@ -14,6 +14,8 @@ import { FilterableObjectsExample } from "../examples/filterable-objects-example
 import filterableObjectsExampleString from "../examples/filterable-objects-example?raw";
 import { MultipleExample } from "../examples/multiple-example";
 import multipleExampleString from "../examples/multiple-example?raw";
+import { MultipleFilterableExample } from "../examples/multiple-filterable-example";
+import multipleFilterableExampleString from "../examples/multiple-filterable-example?raw";
 
 const Home = () => {
   return (
@@ -75,6 +77,12 @@ const Home = () => {
                 <MultipleExample />
               </ExampleDemo>
               <ExampleCode code={multipleExampleString} />
+            </Example>
+            <Example title="Multiple Filterable">
+              <ExampleDemo>
+                <MultipleFilterableExample />
+              </ExampleDemo>
+              <ExampleCode code={multipleFilterableExampleString} />
             </Example>
           </div>
         </div>

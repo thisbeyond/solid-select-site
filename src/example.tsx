@@ -1,6 +1,8 @@
 import cc from "classcat";
 import { highlight } from "./highlighter";
 
+import "./example.css";
+
 export const Example = (props) => {
   return (
     <div>
@@ -39,7 +41,7 @@ export const ExampleDemo = (props) => {
   return (
     <div
       class={
-        "w-full lg:flex-1 flex flex-col justify-center items-center gap-5 " +
+        "w-full lg:flex-1 flex justify-center items-center gap-5 " +
         "border-3 border-dashed rounded-lg p-6 relative text-xl " +
         "children:bg-white"
       }

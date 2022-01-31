@@ -1,6 +1,5 @@
 import { createSignal } from "solid-js";
 import { Select } from "@thisbeyond/solid-select";
-import "@thisbeyond/solid-select/style.css";
 
 export const ReactiveExample = () => {
   const optionSets = {

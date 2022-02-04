@@ -16,6 +16,9 @@ import { MultipleExample } from "../examples/multiple-example";
 import multipleExampleString from "../examples/multiple-example?raw";
 import { MultipleFilterableExample } from "../examples/multiple-filterable-example";
 import multipleFilterableExampleString from "../examples/multiple-filterable-example?raw";
+import { StylingExample } from "../examples/styling-example";
+import stylingExampleString from "../examples/styling-example?raw";
+import stylingExampleCSSString from "../examples/styling-example.css?inline";
 
 const Home = () => {
   return (
@@ -48,6 +51,21 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <div class="space-y-14">
+            <Example title="Styling">
+              <ExampleDemo>
+                <StylingExample />
+              </ExampleDemo>
+              <div class="w-full lg:flex-1 lg:max-w-1/2">
+                <ExampleCode
+                  code={stylingExampleString}
+                  class="mb-1 flex-1 !lg:max-w-full"
+                />
+                <ExampleCode
+                  stylesheet={stylingExampleCSSString}
+                  class="flex-1 !lg:max-w-full"
+                />
+              </div>
+            </Example>
             <Example title="Static">
               <ExampleDemo>
                 <StaticExample />

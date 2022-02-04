@@ -1,5 +1,5 @@
 import cc from "classcat";
-import { highlight } from "./highlighter";
+import { highlight, highlightStyle } from "./highlighter";
 
 import "./example.css";
 
@@ -22,9 +22,11 @@ export const Example = (props) => {
 };
 
 export const ExampleCode = (props) => {
-  const highlightedCode = highlight(props.code);
+  const highlightedCode = props.code
+    ? highlight(props.code)
+    : highlightStyle(props.stylesheet);
   return (
-    <div class="w-full lg:flex-1 lg:max-w-1/2">
+    <div class={cc(["w-full lg:flex-1 lg:max-w-1/2", props.class])}>
       <pre
         class={
           "text-sm text-white bg-gray-800 rounded-lg p-6 " +

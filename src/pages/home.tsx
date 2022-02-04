@@ -18,11 +18,11 @@ import { MultipleFilterableExample } from "../examples/multiple-filterable-examp
 import multipleFilterableExampleString from "../examples/multiple-filterable-example?raw";
 import { StylingExample } from "../examples/styling-example";
 import stylingExampleString from "../examples/styling-example?raw";
-import stylingExampleCSSString from "../examples/styling-example.css?raw";
+import stylingExampleCSSString from "../examples/styling-example.css?inline";
 
-const stylingExampleStylesheet = stylingExampleCSSString.replace(
-  /\\n|\\|export default "/g,
-  ""
+const stylingExampleStylesheet = stylingExampleCSSString.replaceAll(
+  /\.custom/g,
+  "\n.custom"
 );
 
 const Home = () => {

@@ -20,10 +20,13 @@ import { StylingExample } from "../examples/styling-example";
 import stylingExampleString from "../examples/styling-example?raw";
 import stylingExampleCSSString from "../examples/styling-example.css?inline";
 
-const stylingExampleStylesheet = stylingExampleCSSString.replaceAll(
-  /\.custom/g,
-  "\n.custom"
-);
+const stylingExampleStylesheet = stylingExampleCSSString.includes(":#")
+  ? stylingExampleCSSString
+      .replaceAll("{", " {\n")
+      .replaceAll("}", "\n}\n")
+      .replaceAll(";", ";\n")
+      .replaceAll(":", ": ")
+  : stylingExampleCSSString;
 
 const Home = () => {
   return (

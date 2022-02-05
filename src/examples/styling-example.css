@@ -16,7 +16,7 @@
   color: #fff;
 }
 
-.custom .solid-select-option[data-focused="true"] {
+.custom .solid-select-option[data-focused=true] {
   background-color: #fca560;
   color: #fff;
 }

@@ -18,15 +18,26 @@ import { MultipleFilterableExample } from "../examples/multiple-filterable-examp
 import multipleFilterableExampleString from "../examples/multiple-filterable-example?raw";
 import { StylingExample } from "../examples/styling-example";
 import stylingExampleString from "../examples/styling-example?raw";
-import stylingExampleCSSString from "../examples/styling-example.css?inline";
 
-const stylingExampleStylesheet = stylingExampleCSSString.includes(":#")
-  ? stylingExampleCSSString
-      .replaceAll("{", " {\n")
-      .replaceAll("}", "\n}\n")
-      .replaceAll(";", ";\n")
-      .replaceAll(":", ": ")
-  : stylingExampleCSSString;
+const stylingExampleStylesheet = `.custom.solid-select-container {
+  color: #fa7f25;
+}
+.custom .solid-select-control {
+  outline-color: #fca560;
+  border-color: #fca560;
+}
+.custom .solid-select-placeholder {
+  color: #fca560;
+}
+.custom .solid-select-option:hover {
+  background-color: #fa7f25;
+  color: #fff;
+}
+.custom .solid-select-option[data-focused=true] {
+  background-color: #fca560;
+  color: #fff;
+}
+`;
 
 const Home = () => {
   return (

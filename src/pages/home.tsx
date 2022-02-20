@@ -4,6 +4,8 @@ import { FeatureCard } from "../feature-card";
 import { SectionHeading } from "../section-heading";
 import { InstallButton } from "../install-button";
 import { Example, ExampleCode, ExampleDemo } from "../example";
+import { StylingExample } from "../examples/styling-example";
+import stylingExampleString from "../examples/styling-example?raw";
 import { StaticExample } from "../examples/static-example";
 import staticExampleString from "../examples/static-example?raw";
 import { ReactiveExample } from "../examples/reactive-example";
@@ -12,12 +14,20 @@ import { FilterableExample } from "../examples/filterable-example";
 import filterableExampleString from "../examples/filterable-example?raw";
 import { FilterableObjectsExample } from "../examples/filterable-objects-example";
 import filterableObjectsExampleString from "../examples/filterable-objects-example?raw";
+import { CreateableExample } from "../examples/createable-example";
+import createableExampleString from "../examples/createable-example?raw";
+import { CreateableObjectsExample } from "../examples/createable-objects-example";
+import createableObjectsExampleString from "../examples/createable-objects-example?raw";
 import { MultipleExample } from "../examples/multiple-example";
 import multipleExampleString from "../examples/multiple-example?raw";
 import { MultipleFilterableExample } from "../examples/multiple-filterable-example";
 import multipleFilterableExampleString from "../examples/multiple-filterable-example?raw";
-import { StylingExample } from "../examples/styling-example";
-import stylingExampleString from "../examples/styling-example?raw";
+import { MultipleCreateableExample } from "../examples/multiple-createable-example";
+import multipleCreateableExampleString from "../examples/multiple-createable-example?raw";
+import { DisabledOptionsExample } from "../examples/disabled-options-example";
+import disabledOptionsExampleString from "../examples/disabled-options-example?raw";
+import { KitchenSinkExample } from "../examples/kitchen-sink-example";
+import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
 
 const stylingExampleStylesheet = `.custom.solid-select-container {
   color: #fa7f25;
@@ -109,6 +119,18 @@ const Home = () => {
               </ExampleDemo>
               <ExampleCode code={filterableObjectsExampleString} />
             </Example>
+            <Example title="Createable">
+              <ExampleDemo>
+                <CreateableExample />
+              </ExampleDemo>
+              <ExampleCode code={createableExampleString} />
+            </Example>
+            <Example title="Createable (Objects)">
+              <ExampleDemo>
+                <CreateableObjectsExample />
+              </ExampleDemo>
+              <ExampleCode code={createableObjectsExampleString} />
+            </Example>
             <Example title="Multiple">
               <ExampleDemo>
                 <MultipleExample />
@@ -120,6 +142,24 @@ const Home = () => {
                 <MultipleFilterableExample />
               </ExampleDemo>
               <ExampleCode code={multipleFilterableExampleString} />
+            </Example>
+            <Example title="Multiple Createable">
+              <ExampleDemo>
+                <MultipleCreateableExample />
+              </ExampleDemo>
+              <ExampleCode code={multipleCreateableExampleString} />
+            </Example>
+            <Example title="Disabled Options">
+              <ExampleDemo>
+                <DisabledOptionsExample />
+              </ExampleDemo>
+              <ExampleCode code={disabledOptionsExampleString} />
+            </Example>
+            <Example title="Kitchen Sink">
+              <ExampleDemo>
+                <KitchenSinkExample />
+              </ExampleDemo>
+              <ExampleCode code={kitchenSinkExampleString} />
             </Example>
           </div>
         </div>

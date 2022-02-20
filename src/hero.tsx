@@ -1,4 +1,4 @@
-import { createFilterable, Select } from "@thisbeyond/solid-select";
+import { createOptions, Select } from "@thisbeyond/solid-select";
 
 export const Hero = () => {
   return (
@@ -39,13 +39,7 @@ export const Hero = () => {
           multiple
           autofocus
           class="bg-white text-black text-2xl flex-1 lg:max-w-[30vw]"
-          {...createFilterable([
-            "apple",
-            "banana",
-            "pear",
-            "pineapple",
-            "kiwi",
-          ])}
+          {...createOptions(["apple", "banana", "pear", "pineapple", "kiwi"])}
         />
       </div>
     </div>

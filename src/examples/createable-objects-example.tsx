@@ -1,6 +1,6 @@
 import { Select, createOptions } from "@thisbeyond/solid-select";
 
-export const FilterableObjectsExample = () => (
+export const CreateableObjectsExample = () => (
   <Select
     {...createOptions(
       [
@@ -10,7 +10,10 @@ export const FilterableObjectsExample = () => (
         { name: "pineapple" },
         { name: "kiwi" },
       ],
-      { key: "name" }
+      {
+        key: "name",
+        createable: true,
+      }
     )}
   />
 );

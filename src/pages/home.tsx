@@ -10,6 +10,8 @@ import { StaticExample } from "../examples/static-example";
 import staticExampleString from "../examples/static-example?raw";
 import { ReactiveExample } from "../examples/reactive-example";
 import reactiveExampleString from "../examples/reactive-example?raw";
+import { EnableDisableExample } from "../examples/enable-disable-example";
+import enableDisableExampleString from "../examples/enable-disable-example?raw";
 import { FilterableExample } from "../examples/filterable-example";
 import filterableExampleString from "../examples/filterable-example?raw";
 import { FilterableObjectsExample } from "../examples/filterable-objects-example";
@@ -106,6 +108,12 @@ const Home = () => {
                 <ReactiveExample />
               </ExampleDemo>
               <ExampleCode code={reactiveExampleString} />
+            </Example>
+            <Example title="Enable / Disable">
+              <ExampleDemo>
+                <EnableDisableExample />
+              </ExampleDemo>
+              <ExampleCode code={enableDisableExampleString} />
             </Example>
             <Example title="Filterable">
               <ExampleDemo>

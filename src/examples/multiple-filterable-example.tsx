@@ -1,8 +1,6 @@
 import { Select, createOptions } from "@thisbeyond/solid-select";
 
-export const MultipleFilterableExample = () => (
-  <Select
-    multiple
-    {...createOptions(["apple", "banana", "pear", "pineapple", "kiwi"])}
-  />
-);
+export const MultipleFilterableExample = () => {
+  const props = createOptions(["apple", "banana", "pear", "pineapple", "kiwi"]);
+  return <Select multiple {...props} />;
+};

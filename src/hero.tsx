@@ -1,6 +1,14 @@
 import { createOptions, Select } from "@thisbeyond/solid-select";
 
 export const Hero = () => {
+  const selectProps = createOptions([
+    "apple",
+    "banana",
+    "pear",
+    "pineapple",
+    "kiwi",
+  ]);
+
   return (
     <div
       class={
@@ -39,7 +47,7 @@ export const Hero = () => {
           multiple
           autofocus
           class="bg-white text-black text-2xl flex-1 lg:max-w-[30vw]"
-          {...createOptions(["apple", "banana", "pear", "pineapple", "kiwi"])}
+          {...selectProps}
         />
       </div>
     </div>

@@ -29,17 +29,19 @@ export const KitchenSinkExample = () => {
     }
   };
 
+  const props = createOptions(values(), {
+    key: "name",
+    disable: (value) => selectedValues().includes(value),
+    filterable: true, // Default
+    createable: createValue,
+  });
+
   return (
     <Select
       multiple
       initialValue={initialValue}
       onChange={onChange}
-      {...createOptions(values(), {
-        key: "name",
-        disable: (value) => selectedValues().includes(value),
-        filterable: true, // Default
-        createable: createValue,
-      })}
+      {...props}
     />
   );
 };

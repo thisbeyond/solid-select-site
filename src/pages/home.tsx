@@ -1,3 +1,7 @@
+import { createSignal, Match, Switch } from "solid-js";
+import { Select, createOptions } from "@thisbeyond/solid-select";
+import cc from "classcat";
+
 import { WaveFooter } from "../wave-footer";
 import { Header } from "../header";
 import { FeatureCard } from "../feature-card";
@@ -33,6 +37,8 @@ import disabledOptionsExampleString from "../examples/disabled-options-example?r
 import { KitchenSinkExample } from "../examples/kitchen-sink-example";
 import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
 
+import "./home.css";
+
 const stylingExampleStylesheet = `.custom.solid-select-container {
   color: #fa7f25;
 }
@@ -54,6 +60,25 @@ const stylingExampleStylesheet = `.custom.solid-select-container {
 `;
 
 const Home = () => {
+  const [example, setExample] = createSignal();
+  const examples = [
+    "Styling",
+    "Static",
+    "Reactive",
+    "Async Fetch",
+    "Enable / Disable",
+    "Filterable",
+    "Filterable (Objects)",
+    "Createable",
+    "Createable (Objects)",
+    "Multiple",
+    "Multiple Filterable",
+    "Multiple Createable",
+    "Disabled Options",
+    "Kitchen Sink",
+  ];
+  const selectProps = createOptions(examples);
+
   return (
     <div class="leading-normal tracking-normal text-white ">
       <Header />
@@ -83,101 +108,145 @@ const Home = () => {
       <section id="examples" class="bg-gray-100 py-8">
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
-          <div class="space-y-14">
-            <Example title="Styling">
-              <ExampleDemo>
-                <StylingExample />
-              </ExampleDemo>
-              <div class="w-full lg:flex-1 lg:max-w-1/2">
-                <ExampleCode
-                  code={stylingExampleString}
-                  class="mb-1 flex-1 !lg:max-w-full"
-                />
-                <ExampleCode
-                  stylesheet={stylingExampleStylesheet}
-                  class="flex-1 !lg:max-w-full"
-                />
-              </div>
-            </Example>
-            <Example title="Static">
-              <ExampleDemo>
-                <StaticExample />
-              </ExampleDemo>
-              <ExampleCode code={staticExampleString} />
-            </Example>
-            <Example title="Reactive">
-              <ExampleDemo>
-                <ReactiveExample />
-              </ExampleDemo>
-              <ExampleCode code={reactiveExampleString} />
-            </Example>
-            <Example title="Async Fetch">
-              <ExampleDemo>
-                <AsyncFetchExample />
-              </ExampleDemo>
-              <ExampleCode code={asyncFetchExampleString} />
-            </Example>
-            <Example title="Enable / Disable">
-              <ExampleDemo>
-                <EnableDisableExample />
-              </ExampleDemo>
-              <ExampleCode code={enableDisableExampleString} />
-            </Example>
-            <Example title="Filterable">
-              <ExampleDemo>
-                <FilterableExample />
-              </ExampleDemo>
-              <ExampleCode code={filterableExampleString} />
-            </Example>
-            <Example title="Filterable (Objects)">
-              <ExampleDemo>
-                <FilterableObjectsExample />
-              </ExampleDemo>
-              <ExampleCode code={filterableObjectsExampleString} />
-            </Example>
-            <Example title="Createable">
-              <ExampleDemo>
-                <CreateableExample />
-              </ExampleDemo>
-              <ExampleCode code={createableExampleString} />
-            </Example>
-            <Example title="Createable (Objects)">
-              <ExampleDemo>
-                <CreateableObjectsExample />
-              </ExampleDemo>
-              <ExampleCode code={createableObjectsExampleString} />
-            </Example>
-            <Example title="Multiple">
-              <ExampleDemo>
-                <MultipleExample />
-              </ExampleDemo>
-              <ExampleCode code={multipleExampleString} />
-            </Example>
-            <Example title="Multiple Filterable">
-              <ExampleDemo>
-                <MultipleFilterableExample />
-              </ExampleDemo>
-              <ExampleCode code={multipleFilterableExampleString} />
-            </Example>
-            <Example title="Multiple Createable">
-              <ExampleDemo>
-                <MultipleCreateableExample />
-              </ExampleDemo>
-              <ExampleCode code={multipleCreateableExampleString} />
-            </Example>
-            <Example title="Disabled Options">
-              <ExampleDemo>
-                <DisabledOptionsExample />
-              </ExampleDemo>
-              <ExampleCode code={disabledOptionsExampleString} />
-            </Example>
-            <Example title="Kitchen Sink">
-              <ExampleDemo>
-                <KitchenSinkExample />
-              </ExampleDemo>
-              <ExampleCode code={kitchenSinkExampleString} />
-            </Example>
-          </div>
+          <Select
+            class={cc([
+              "home",
+              "text-gray-800 text-3xl font-bold leading-none mb-5 bg-white",
+            ])}
+            placeholder="Select example..."
+            onChange={(value) => setExample(value)}
+            {...selectProps}
+          />
+          <Switch
+            fallback={
+              <Example>
+                <ExampleDemo />
+                <ExampleCode code="\nSelect an example to see the related code.\n " />
+              </Example>
+            }
+          >
+            <Match when={example() === "Styling"}>
+              <Example>
+                <ExampleDemo>
+                  <StylingExample />
+                </ExampleDemo>
+                <div class="w-full lg:flex-1 lg:max-w-1/2">
+                  <ExampleCode
+                    code={stylingExampleString}
+                    class="mb-1 flex-1 !lg:max-w-full"
+                  />
+                  <ExampleCode
+                    stylesheet={stylingExampleStylesheet}
+                    class="flex-1 !lg:max-w-full"
+                  />
+                </div>
+              </Example>
+            </Match>
+            <Match when={example() === "Static"}>
+              <Example>
+                <ExampleDemo>
+                  <StaticExample />
+                </ExampleDemo>
+                <ExampleCode code={staticExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Reactive"}>
+              <Example>
+                <ExampleDemo>
+                  <ReactiveExample />
+                </ExampleDemo>
+                <ExampleCode code={reactiveExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Async Fetch"}>
+              <Example>
+                <ExampleDemo>
+                  <AsyncFetchExample />
+                </ExampleDemo>
+                <ExampleCode code={asyncFetchExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Enable / Disable"}>
+              <Example>
+                <ExampleDemo>
+                  <EnableDisableExample />
+                </ExampleDemo>
+                <ExampleCode code={enableDisableExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Filterable"}>
+              <Example>
+                <ExampleDemo>
+                  <FilterableExample />
+                </ExampleDemo>
+                <ExampleCode code={filterableExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Filterable (Objects)"}>
+              <Example>
+                <ExampleDemo>
+                  <FilterableObjectsExample />
+                </ExampleDemo>
+                <ExampleCode code={filterableObjectsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Createable"}>
+              <Example>
+                <ExampleDemo>
+                  <CreateableExample />
+                </ExampleDemo>
+                <ExampleCode code={createableExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Createable (Objects)"}>
+              <Example>
+                <ExampleDemo>
+                  <CreateableObjectsExample />
+                </ExampleDemo>
+                <ExampleCode code={createableObjectsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Multiple"}>
+              <Example>
+                <ExampleDemo>
+                  <MultipleExample />
+                </ExampleDemo>
+                <ExampleCode code={multipleExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Multiple Filterable"}>
+              <Example>
+                <ExampleDemo>
+                  <MultipleFilterableExample />
+                </ExampleDemo>
+                <ExampleCode code={multipleFilterableExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Multiple Createable"}>
+              <Example>
+                <ExampleDemo>
+                  <MultipleCreateableExample />
+                </ExampleDemo>
+                <ExampleCode code={multipleCreateableExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Disabled Options"}>
+              <Example>
+                <ExampleDemo>
+                  <DisabledOptionsExample />
+                </ExampleDemo>
+                <ExampleCode code={disabledOptionsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Kitchen Sink"}>
+              <Example>
+                <ExampleDemo>
+                  <KitchenSinkExample />
+                </ExampleDemo>
+                <ExampleCode code={kitchenSinkExampleString} />
+              </Example>
+            </Match>
+          </Switch>
         </div>
       </section>
       <footer class="bg-gradient">

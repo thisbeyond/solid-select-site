@@ -10,6 +10,8 @@ import { StaticExample } from "../examples/static-example";
 import staticExampleString from "../examples/static-example?raw";
 import { ReactiveExample } from "../examples/reactive-example";
 import reactiveExampleString from "../examples/reactive-example?raw";
+import { AsyncFetchExample } from "../examples/async-fetch-example";
+import asyncFetchExampleString from "../examples/async-fetch-example?raw";
 import { EnableDisableExample } from "../examples/enable-disable-example";
 import enableDisableExampleString from "../examples/enable-disable-example?raw";
 import { FilterableExample } from "../examples/filterable-example";
@@ -108,6 +110,12 @@ const Home = () => {
                 <ReactiveExample />
               </ExampleDemo>
               <ExampleCode code={reactiveExampleString} />
+            </Example>
+            <Example title="Async Fetch">
+              <ExampleDemo>
+                <AsyncFetchExample />
+              </ExampleDemo>
+              <ExampleCode code={asyncFetchExampleString} />
             </Example>
             <Example title="Enable / Disable">
               <ExampleDemo>

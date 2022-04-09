@@ -29,7 +29,7 @@ export const KitchenSinkExample = () => {
     }
   };
 
-  const props = createOptions(values(), {
+  const props = createOptions(values, {
     key: "name",
     disable: (value) => selectedValues().includes(value),
     filterable: true, // Default

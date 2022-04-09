@@ -34,6 +34,8 @@ import { MultipleCreateableExample } from "../examples/multiple-createable-examp
 import multipleCreateableExampleString from "../examples/multiple-createable-example?raw";
 import { DisabledOptionsExample } from "../examples/disabled-options-example";
 import disabledOptionsExampleString from "../examples/disabled-options-example?raw";
+import { AutoScrollExample } from "../examples/auto-scroll-example";
+import autoScrollExampleString from "../examples/auto-scroll-example?raw";
 import { KitchenSinkExample } from "../examples/kitchen-sink-example";
 import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
 
@@ -75,6 +77,7 @@ const Home = () => {
     "Multiple Filterable",
     "Multiple Createable",
     "Disabled Options",
+    "Auto scroll",
     "Kitchen Sink",
   ];
   const selectProps = createOptions(examples);
@@ -236,6 +239,14 @@ const Home = () => {
                   <DisabledOptionsExample />
                 </ExampleDemo>
                 <ExampleCode code={disabledOptionsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Auto scroll"}>
+              <Example>
+                <ExampleDemo>
+                  <AutoScrollExample />
+                </ExampleDemo>
+                <ExampleCode code={autoScrollExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Kitchen Sink"}>

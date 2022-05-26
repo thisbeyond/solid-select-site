@@ -6,7 +6,7 @@ export const ResetExample = () => {
   return (
     <>
       <Select
-        initialValue={initialValue}
+        initialValue={initialValue()}
         options={["apple", "banana", "pear", "pineapple", "kiwi"]}
       />
       <button class="primary-button" onClick={() => setInitialValue(null)}>

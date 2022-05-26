@@ -20,4 +20,12 @@ export default defineConfig({
       },
     },
   },
+  shortcuts: {
+    "primary-button":
+      "text-white !bg-secondary " +
+      "rounded-lg py-1 px-4 shadow " +
+      "focus:outline-none focus:shadow-outline transform transition " +
+      "!hover:scale-110 duration-300 ease-in-out " +
+      "!active:scale-100",
+  },
 });

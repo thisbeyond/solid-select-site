@@ -40,6 +40,8 @@ import { AutoScrollExample } from "../examples/auto-scroll-example";
 import autoScrollExampleString from "../examples/auto-scroll-example?raw";
 import { KitchenSinkExample } from "../examples/kitchen-sink-example";
 import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
+import { GroupingExample } from "../examples/grouping-example";
+import groupingExampleString from "../examples/grouping-example?raw";
 
 import "./home.css";
 
@@ -80,6 +82,7 @@ const Home = () => {
     "Multiple Filterable",
     "Multiple Createable",
     "Disabled Options",
+    "Grouping",
     "Auto scroll",
     "Kitchen Sink",
   ];
@@ -250,6 +253,14 @@ const Home = () => {
                   <DisabledOptionsExample />
                 </ExampleDemo>
                 <ExampleCode code={disabledOptionsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Grouping"}>
+              <Example>
+                <ExampleDemo>
+                  <GroupingExample />
+                </ExampleDemo>
+                <ExampleCode code={groupingExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Auto scroll"}>

@@ -42,6 +42,8 @@ import { KitchenSinkExample } from "../examples/kitchen-sink-example";
 import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
 import { GroupingExample } from "../examples/grouping-example";
 import groupingExampleString from "../examples/grouping-example?raw";
+import { CustomTemplateExample } from "../examples/custom-template-example";
+import customTemplateExampleString from "../examples/custom-template-example?raw";
 
 import "./home.css";
 
@@ -72,6 +74,7 @@ const Home = () => {
     "Static",
     "Reactive",
     "Reset",
+    "Custom Template",
     "Async Fetch",
     "Enable / Disable",
     "Filterable",
@@ -173,6 +176,14 @@ const Home = () => {
                   <ResetExample />
                 </ExampleDemo>
                 <ExampleCode code={resetExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Custom Template"}>
+              <Example>
+                <ExampleDemo>
+                  <CustomTemplateExample />
+                </ExampleDemo>
+                <ExampleCode code={customTemplateExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Async Fetch"}>

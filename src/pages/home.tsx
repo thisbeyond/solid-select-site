@@ -42,6 +42,8 @@ import { KitchenSinkExample } from "../examples/kitchen-sink-example";
 import kitchenSinkExampleString from "../examples/kitchen-sink-example?raw";
 import { GroupingExample } from "../examples/grouping-example";
 import groupingExampleString from "../examples/grouping-example?raw";
+import { SuidExample } from "../examples/suid-example";
+import suidExampleString from "../examples/suid-example?raw";
 
 import "./home.css";
 
@@ -85,6 +87,7 @@ const Home = () => {
     "Grouping",
     "Auto scroll",
     "Kitchen Sink",
+    "SUID Integration",
   ];
   const selectProps = createOptions(examples);
 
@@ -277,6 +280,14 @@ const Home = () => {
                   <KitchenSinkExample />
                 </ExampleDemo>
                 <ExampleCode code={kitchenSinkExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "SUID Integration"}>
+              <Example>
+                <ExampleDemo>
+                  <SuidExample />
+                </ExampleDemo>
+                <ExampleCode code={suidExampleString} />
               </Example>
             </Match>
           </Switch>

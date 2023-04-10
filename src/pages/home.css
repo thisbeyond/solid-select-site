@@ -1,5 +1,5 @@
 .home .solid-select-list {
-  @apply max-h-[50vh] overflow-y-auto;
+  @apply max-h-[50vh] overflow-y-auto z-60;
 }
 
 .home .solid-select-option {

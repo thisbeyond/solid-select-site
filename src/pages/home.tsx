@@ -1,4 +1,4 @@
-import { createSignal, Match, Switch } from "solid-js";
+import { createSignal, Match, onMount, Switch } from "solid-js";
 import { Select, createOptions } from "@thisbeyond/solid-select";
 import cc from "classcat";
 
@@ -46,6 +46,7 @@ import { SuidExample } from "../examples/suid-example";
 import suidExampleString from "../examples/suid-example?raw";
 
 import "./home.css";
+import { useSearchParams } from "@solidjs/router";
 
 const stylingExampleStylesheet = `.custom.solid-select-container {
   color: #fa7f25;
@@ -68,7 +69,17 @@ const stylingExampleStylesheet = `.custom.solid-select-container {
 `;
 
 const Home = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
   const [example, setExample] = createSignal();
+  let examplesRef;
+
+  onMount(() => {
+    if (searchParams.example) {
+      setExample(decodeURIComponent(searchParams.example));
+      setTimeout(() => examplesRef.scrollIntoView({ behavior: "smooth" }), 250);
+    }
+  });
+
   const examples = [
     "Styling",
     "Static",
@@ -117,7 +128,7 @@ const Home = () => {
           </div>
         </div>
       </section>
-      <section id="examples" class="bg-gray-100 py-8">
+      <section id="examples" class="bg-gray-100 py-8" ref={examplesRef}>
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <Select
@@ -126,7 +137,11 @@ const Home = () => {
               "text-gray-800 text-3xl font-bold leading-none mb-5 bg-white",
             ])}
             placeholder="Select example..."
-            onChange={(value) => setExample(value)}
+            initialValue={example()}
+            onChange={(value) => {
+              setExample(value);
+              setSearchParams({ example: encodeURIComponent(value) });
+            }}
             {...selectProps}
           />
           <Switch

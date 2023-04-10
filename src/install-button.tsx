@@ -1,6 +1,7 @@
-import { Icon } from "@amoutonbrady/solid-heroicons";
-import { duplicate, check } from "@amoutonbrady/solid-heroicons/outline";
-import { createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
+import CheckIcon from "@suid/icons-material/Check";
+import ContentCopyIcon from "@suid/icons-material/ContentCopy";
+import { Box } from "@suid/material";
 
 export const InstallButton = () => {
   const code = "npm install @thisbeyond/solid-select";
@@ -21,10 +22,11 @@ export const InstallButton = () => {
       }}
     >
       {code}
-      <Icon
-        path={copied() ? check : duplicate}
-        class="h-1.5em inline ml-1 align-bottom"
-      />
+      <Box ml={1} component="span">
+        <Show when={copied()} fallback={<ContentCopyIcon />}>
+          <CheckIcon />
+        </Show>
+      </Box>
     </button>
   );
 };

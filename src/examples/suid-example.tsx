@@ -113,7 +113,7 @@ const Select: VoidComponent<SelectProps> = (props) => {
                     <Chip
                       sx={{ m: "2px 4px 2px 0px" }}
                       size="small"
-                      onPointerDown={(event) => event.preventDefault()}
+                      onMouseDown={select.onMouseDown}
                       onDelete={() => removeValue(index())}
                       label={local.format(value, "value")}
                     />
@@ -154,9 +154,7 @@ const Select: VoidComponent<SelectProps> = (props) => {
         open={select.isOpen()}
         anchorEl={fieldRef.ref}
         placement="bottom"
-        onPointerDown={(event) => {
-          event.preventDefault();
-        }}
+        onMouseDown={select.onMouseDown}
       >
         <Paper
           sx={{

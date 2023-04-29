@@ -37,9 +37,8 @@ export const KitchenSinkExample = () => {
   });
 
   return (
-    <div class="flex flex-1 flex-col max-w-100 gap-3 bg-transparent">
+    <div class="flex flex-1 flex-col max-w-100 gap-3">
       <Select
-        class="bg-white"
         multiple
         initialValue={selectedValues()}
         onChange={onChange}

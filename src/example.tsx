@@ -44,8 +44,7 @@ export const ExampleDemo = (props) => {
     <div
       class={
         "w-full lg:flex-1 flex justify-center items-center gap-5 " +
-        "border-3 border-dashed rounded-lg p-6 relative text-xl " +
-        "children:bg-white"
+        "border-3 border-dashed rounded-lg p-6 relative text-xl "
       }
     >
       {props.children}

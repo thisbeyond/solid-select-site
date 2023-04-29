@@ -14,6 +14,8 @@ import { StaticExample } from "../examples/static-example";
 import staticExampleString from "../examples/static-example?raw";
 import { ReactiveExample } from "../examples/reactive-example";
 import reactiveExampleString from "../examples/reactive-example?raw";
+import { FormatExample } from "../examples/format-example";
+import formatExampleString from "../examples/format-example?raw";
 import { ResetExample } from "../examples/reset-example";
 import resetExampleString from "../examples/reset-example?raw";
 import { AsyncFetchExample } from "../examples/async-fetch-example";
@@ -84,6 +86,7 @@ const Home = () => {
     "Styling",
     "Static",
     "Reactive",
+    "Format",
     "Reset",
     "Async Fetch",
     "Enable / Disable",
@@ -183,6 +186,14 @@ const Home = () => {
                   <ReactiveExample />
                 </ExampleDemo>
                 <ExampleCode code={reactiveExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Format"}>
+              <Example>
+                <ExampleDemo>
+                  <FormatExample />
+                </ExampleDemo>
+                <ExampleCode code={formatExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Reset"}>

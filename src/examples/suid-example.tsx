@@ -127,6 +127,7 @@ const Select: VoidComponent<SelectProps> = (props) => {
           "& .MuiInputBase-root": {
             flexWrap: "wrap",
             padding: "6px 6px 6px 14px",
+            background: "white",
           },
           "& .MuiInputBase-input": {
             padding: "2.5px 0px",

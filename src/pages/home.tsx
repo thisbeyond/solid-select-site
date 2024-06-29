@@ -50,23 +50,29 @@ import suidExampleString from "../examples/suid-example?raw";
 import "./home.css";
 import { useSearchParams } from "@solidjs/router";
 
-const stylingExampleStylesheet = `.custom.solid-select-container {
+const stylingExampleStylesheet = `.custom {
+  &.solid-select-container {
   color: #fa7f25;
 }
-.custom .solid-select-control {
+  .solid-select-control {
+    border-color: #fca560;
+    &:focus-within {
   outline-color: #fca560;
-  border-color: #fca560;
+    }
 }
-.custom .solid-select-placeholder {
+  .solid-select-placeholder {
   color: #fca560;
 }
-.custom .solid-select-option:hover {
+  .solid-select-option {
+    &:hover {
   background-color: #fa7f25;
   color: #fff;
 }
-.custom .solid-select-option[data-focused=true] {
+    &[data-focused="true"] {
   background-color: #fca560;
   color: #fff;
+    }
+  }
 }
 `;
 

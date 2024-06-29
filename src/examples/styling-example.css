@@ -1,22 +1,27 @@
-.custom.solid-select-container {
-  color: #fa7f25;
-}
+.custom {
+  &.solid-select-container {
+    color: #fa7f25;
+  }
 
-.custom .solid-select-control {
-  outline-color: #fca560;
-  border-color: #fca560;
-}
+  .solid-select-control {
+    border-color: #fca560;
+    &:focus-within {
+      outline-color: #fca560;
+    }
+  }
 
-.custom .solid-select-placeholder {
-  color: #fca560;
-}
+  .solid-select-placeholder {
+    color: #fca560;
+  }
 
-.custom .solid-select-option:hover {
-  background-color: #fa7f25;
-  color: #fff;
-}
-
-.custom .solid-select-option[data-focused=true] {
-  background-color: #fca560;
-  color: #fff;
+  .solid-select-option {
+    &:hover {
+      background-color: #fa7f25;
+      color: #fff;
+    }
+    &[data-focused="true"] {
+      background-color: #fca560;
+      color: #fff;
+    }
+  }
 }

@@ -18,6 +18,8 @@ import { FormatExample } from "../examples/format-example";
 import formatExampleString from "../examples/format-example?raw";
 import { ResetExample } from "../examples/reset-example";
 import resetExampleString from "../examples/reset-example?raw";
+import { RefFocusExample } from "../examples/ref-focus-example";
+import refFocusExampleString from "../examples/ref-focus-example?raw";
 import { AsyncFetchExample } from "../examples/async-fetch-example";
 import asyncFetchExampleString from "../examples/async-fetch-example?raw";
 import { EnableDisableExample } from "../examples/enable-disable-example";
@@ -52,25 +54,25 @@ import { useSearchParams } from "@solidjs/router";
 
 const stylingExampleStylesheet = `.custom {
   &.solid-select-container {
-  color: #fa7f25;
-}
+    color: #fa7f25;
+  }
   .solid-select-control {
     border-color: #fca560;
     &:focus-within {
-  outline-color: #fca560;
+      outline-color: #fca560;
     }
-}
+  }
   .solid-select-placeholder {
-  color: #fca560;
-}
+    color: #fca560;
+  }
   .solid-select-option {
     &:hover {
-  background-color: #fa7f25;
-  color: #fff;
-}
+      background-color: #fa7f25;
+      color: #fff;
+    }
     &[data-focused="true"] {
-  background-color: #fca560;
-  color: #fff;
+      background-color: #fca560;
+      color: #fff;
     }
   }
 }
@@ -94,6 +96,7 @@ const Home = () => {
     "Reactive",
     "Format",
     "Reset",
+    "Focus with ref",
     "Async Fetch",
     "Enable / Disable",
     "Filterable",
@@ -208,6 +211,14 @@ const Home = () => {
                   <ResetExample />
                 </ExampleDemo>
                 <ExampleCode code={resetExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Focus with ref"}>
+              <Example>
+                <ExampleDemo>
+                  <RefFocusExample />
+                </ExampleDemo>
+                <ExampleCode code={refFocusExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Async Fetch"}>

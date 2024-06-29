@@ -10,5 +10,5 @@ render(
       <Site />
     </Router>
   ),
-  document.getElementById("root")
+  document.getElementById("root"),
 );

@@ -6,7 +6,7 @@ export const FormatExample = () => {
     { name: "apple", label: "🍏 Apple" },
     { name: "banana", label: "🍌 Banana" },
     { name: "pear", label: "🍐 Pear" },
-    { name: "pineapple", label: "🍍 Pineappe" },
+    { name: "pineapple", label: "🍍 Pineapple" },
     { name: "kiwi", label: "🥝 Kiwi" },
   ];
 
@@ -17,7 +17,9 @@ export const FormatExample = () => {
   return (
     <div class="flex flex-1 flex-col max-w-100 gap-3">
       <Select options={options} format={format} onChange={setValue} />
-      <div class="text-sm">Current value: {JSON.stringify(value())}</div>
+      <div class="text-sm mt-2 bg-yellow-500/20 p-3">
+        Value: {JSON.stringify(value())}
+      </div>
     </div>
   );
 };

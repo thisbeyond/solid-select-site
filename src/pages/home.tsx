@@ -16,6 +16,8 @@ import { ReactiveExample } from "../examples/reactive-example";
 import reactiveExampleString from "../examples/reactive-example?raw";
 import { FormatExample } from "../examples/format-example";
 import formatExampleString from "../examples/format-example?raw";
+import { FormatOptionsExample } from "../examples/format-options-example";
+import formatOptionsExampleString from "../examples/format-options-example?raw";
 import { ResetExample } from "../examples/reset-example";
 import resetExampleString from "../examples/reset-example?raw";
 import { RefFocusExample } from "../examples/ref-focus-example";
@@ -28,10 +30,14 @@ import { FilterableExample } from "../examples/filterable-example";
 import filterableExampleString from "../examples/filterable-example?raw";
 import { FilterableObjectsExample } from "../examples/filterable-objects-example";
 import filterableObjectsExampleString from "../examples/filterable-objects-example?raw";
+import { FilterableCustomExample } from "../examples/filterable-custom-example";
+import filterableCustomExampleString from "../examples/filterable-custom-example?raw";
 import { CreateableExample } from "../examples/createable-example";
 import createableExampleString from "../examples/createable-example?raw";
 import { CreateableObjectsExample } from "../examples/createable-objects-example";
 import createableObjectsExampleString from "../examples/createable-objects-example?raw";
+import { CreateableCustomExample } from "../examples/createable-custom-example";
+import createableCustomExampleString from "../examples/createable-custom-example?raw";
 import { MultipleExample } from "../examples/multiple-example";
 import multipleExampleString from "../examples/multiple-example?raw";
 import { MultipleFilterableExample } from "../examples/multiple-filterable-example";
@@ -80,8 +86,8 @@ const stylingExampleStylesheet = `.custom {
 
 const Home = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [example, setExample] = createSignal();
-  let examplesRef;
+  const [example, setExample] = createSignal<string>();
+  let examplesRef: HTMLDivElement | undefined;
 
   onMount(() => {
     if (searchParams.example) {
@@ -95,14 +101,17 @@ const Home = () => {
     "Static",
     "Reactive",
     "Format",
+    "Format (Options)",
     "Reset",
     "Focus with ref",
     "Async Fetch",
     "Enable / Disable",
     "Filterable",
     "Filterable (Objects)",
+    "Filterable (Custom)",
     "Createable",
     "Createable (Objects)",
+    "Createable (Custom)",
     "Multiple",
     "Multiple Filterable",
     "Multiple Createable",
@@ -144,10 +153,7 @@ const Home = () => {
         <div class="container mx-auto pt-4 pb-12 px-8 sm:px-20">
           <SectionHeading>Examples</SectionHeading>
           <Select
-            class={cc([
-              "home",
-              "text-gray-800 text-3xl font-bold leading-none mb-5 bg-white",
-            ])}
+            class={"home"}
             placeholder="Select example..."
             initialValue={example()}
             onChange={(value) => {
@@ -205,6 +211,14 @@ const Home = () => {
                 <ExampleCode code={formatExampleString} />
               </Example>
             </Match>
+            <Match when={example() === "Format (Options)"}>
+              <Example>
+                <ExampleDemo>
+                  <FormatOptionsExample />
+                </ExampleDemo>
+                <ExampleCode code={formatOptionsExampleString} />
+              </Example>
+            </Match>
             <Match when={example() === "Reset"}>
               <Example>
                 <ExampleDemo>
@@ -253,6 +267,14 @@ const Home = () => {
                 <ExampleCode code={filterableObjectsExampleString} />
               </Example>
             </Match>
+            <Match when={example() === "Filterable (Custom)"}>
+              <Example>
+                <ExampleDemo>
+                  <FilterableCustomExample />
+                </ExampleDemo>
+                <ExampleCode code={filterableCustomExampleString} />
+              </Example>
+            </Match>
             <Match when={example() === "Createable"}>
               <Example>
                 <ExampleDemo>
@@ -267,6 +289,14 @@ const Home = () => {
                   <CreateableObjectsExample />
                 </ExampleDemo>
                 <ExampleCode code={createableObjectsExampleString} />
+              </Example>
+            </Match>
+            <Match when={example() === "Createable (Custom)"}>
+              <Example>
+                <ExampleDemo>
+                  <CreateableCustomExample />
+                </ExampleDemo>
+                <ExampleCode code={createableCustomExampleString} />
               </Example>
             </Match>
             <Match when={example() === "Multiple"}>

@@ -1,5 +1,5 @@
 import { createSignal } from "solid-js";
-import { Select } from "@thisbeyond/solid-select";
+import { Select, createOptions } from "@thisbeyond/solid-select";
 
 export const RefFocusExample = () => {
   const [ref, setRef] = createSignal<HTMLInputElement | null>(null);
@@ -7,7 +7,7 @@ export const RefFocusExample = () => {
     <>
       <Select
         ref={setRef}
-        options={["apple", "banana", "pear", "pineapple", "kiwi"]}
+        {...createOptions(["apple", "banana", "pear", "pineapple", "kiwi"])}
       />
       <button
         class="primary-button"

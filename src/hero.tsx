@@ -43,12 +43,7 @@ export const Hero = () => {
       </div>
 
       <div class="py-6 lg:px-10 justify-center items-center flex flex-1">
-        <Select
-          multiple
-          autofocus
-          class="bg-white text-black text-2xl flex-1 lg:max-w-[30vw]"
-          {...selectProps}
-        />
+        <Select multiple autofocus class="hero" {...selectProps} />
       </div>
     </div>
   );

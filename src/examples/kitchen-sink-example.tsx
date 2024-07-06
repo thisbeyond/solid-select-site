@@ -1,18 +1,24 @@
-import { For, createSignal, createUniqueId } from "solid-js";
+import { For, JSX, createSignal, createUniqueId } from "solid-js";
 
-import { Select, createOptions } from "@thisbeyond/solid-select";
+import {
+  CreateOptionsFormatFunction,
+  Select,
+  createOptions,
+  fuzzyHighlight,
+  fuzzySort,
+} from "@thisbeyond/solid-select";
 
 export const KitchenSinkExample = () => {
-  const createValue = (name) => {
-    return { id: createUniqueId(), name };
+  const createValue = (name, icon) => {
+    return { id: createUniqueId(), name, icon };
   };
 
   const candidates = [
-    createValue("apple"),
-    createValue("banana"),
-    createValue("pear"),
-    createValue("pineapple"),
-    createValue("kiwi"),
+    createValue("apple", "🍏"),
+    createValue("banana", "🍌"),
+    createValue("pear", "🍐"),
+    createValue("pineapple", "🍍"),
+    createValue("kiwi", "🥝"),
   ];
 
   const initialValue = [candidates[2]];
@@ -29,12 +35,49 @@ export const KitchenSinkExample = () => {
     }
   };
 
+  const format = (value, type, meta) => {
+    switch (type) {
+      case "text":
+        return value.name;
+      default:
+        return (
+          <div class="flex items-center gap-2">
+            {value.name}
+            {value.icon}
+          </div>
+        );
+    }
+  };
+
+  const filterable = (inputValue, options) => {
+    return fuzzySort(inputValue, options, "text").map((result) => ({
+      ...result.item,
+      label: format(result.item.value, "label", {
+        highlight: fuzzyHighlight(result, (match: string) => <b>{match}</b>),
+      }),
+    }));
+  };
+
+  const createable = (inputValue, exists) => {
+    if (exists) return;
+    const name = inputValue.toLowerCase();
+    if (name != "grapes") return;
+    return createValue(name, "🍇");
+  };
+
+  const disable = (value) => selectedValues().includes(value);
+
   const props = createOptions(options, {
-    key: "name",
-    disable: (value) => selectedValues().includes(value),
-    filterable: true, // Default
-    createable: createValue,
+    format,
+    filterable,
+    createable,
+    disable,
   });
+
+  const emptyPlaceholder = () =>
+    options().some((option) => option.name === "grapes")
+      ? "No more options"
+      : "Try 'grapes'!";
 
   return (
     <div class="flex flex-1 flex-col max-w-100 gap-3">
@@ -42,6 +85,7 @@ export const KitchenSinkExample = () => {
         multiple
         initialValue={selectedValues()}
         onChange={onChange}
+        emptyPlaceholder={emptyPlaceholder()}
         {...props}
       />
       <div class="flex gap-3 text-sm items-center">
@@ -60,6 +104,11 @@ export const KitchenSinkExample = () => {
             </button>
           )}
         </For>
+      </div>
+      <div class="text-sm mt-2 bg-yellow-500/20 p-3">
+        Selected values:
+        <br />
+        {JSON.stringify(selectedValues())}
       </div>
     </div>
   );

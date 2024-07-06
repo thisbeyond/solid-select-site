@@ -1,5 +1,0 @@
-@import url("@thisbeyond/solid-select/style.css");
-
-.solid-select-container {
-  @apply flex-1 max-w-100 bg-white;
-}

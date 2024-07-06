@@ -1,8 +1,6 @@
 import cc from "classcat";
 import { highlight, highlightStyle } from "./highlighter";
 
-import "./example.css";
-
 export const Example = (props) => {
   return (
     <div>

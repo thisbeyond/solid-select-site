@@ -1,23 +1,16 @@
-import { Select, createOptions } from "@thisbeyond/solid-select";
 import { createSignal } from "solid-js";
+import { Select, createOptions } from "@thisbeyond/solid-select";
 
 export const FormatOptionsExample = () => {
   const [value, setValue] = createSignal(null);
 
-  const format = (value, type, meta) => {
-    switch (type) {
-      case "text":
-        return value.name;
-      default:
-        return (
-          <div class="flex items-center gap-2">
-            {meta.prefix}
-            <div>{value.icon}</div>
-            <div>{meta.highlight ?? value.name}</div>
-          </div>
-        );
-    }
-  };
+  const format = (value, type, meta) => (
+    <div class="flex items-center gap-2">
+      {meta.prefix}
+      <div>{value.icon}</div>
+      <div>{meta.highlight ?? value.name}</div>
+    </div>
+  );
 
   const props = createOptions(
     [
@@ -29,6 +22,7 @@ export const FormatOptionsExample = () => {
     ],
     {
       format,
+      extractText: (value) => value.name,
       createable: (inputValue) => ({ name: inputValue, icon: "🍇" }),
     },
   );

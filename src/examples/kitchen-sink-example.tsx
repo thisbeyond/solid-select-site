@@ -35,19 +35,12 @@ export const KitchenSinkExample = () => {
     }
   };
 
-  const format = (value, type, meta) => {
-    switch (type) {
-      case "text":
-        return value.name;
-      default:
-        return (
-          <div class="flex items-center gap-2">
-            {value.name}
-            {value.icon}
-          </div>
-        );
-    }
-  };
+  const format = (value, type, meta) => (
+    <div class="flex items-center gap-1">
+      <span>{meta.highlight ?? value.name}</span>
+      {value.icon}
+    </div>
+  );
 
   const filterable = (inputValue, options) => {
     return fuzzySort(inputValue, options, "text").map((result) => ({
@@ -65,12 +58,15 @@ export const KitchenSinkExample = () => {
     return createValue(name, "🍇");
   };
 
+  const extractText = (value) => value.name;
+
   const disable = (value) => selectedValues().includes(value);
 
   const props = createOptions(options, {
     format,
     filterable,
     createable,
+    extractText,
     disable,
   });
 

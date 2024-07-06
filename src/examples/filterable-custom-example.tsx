@@ -35,8 +35,6 @@ export const FilterableCustomExample = () => {
 
   const format = (value, type, meta) => {
     switch (type) {
-      case "text":
-        return value.name;
       case "label":
         return (
           <div class="flex flex-col justify-items-center gap-2">
